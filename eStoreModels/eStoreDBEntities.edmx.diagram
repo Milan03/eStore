@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cd0aa3455e624b898209dcb211dd5e80" Name="Diagram1">
+        <EntityTypeShape EntityType="eStoreDBModel.Customer" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.OrderLineitem" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.Order" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.Product" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.webpages_Membership" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.webpages_OAuthMembership" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eStoreDBModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="eStoreDBModel.FK_CustHasOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="eStoreDBModel.FK_ItemIsProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="eStoreDBModel.FK_OrderHasItems" ManuallyRouted="false" />
+        <AssociationConnector Association="eStoreDBModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

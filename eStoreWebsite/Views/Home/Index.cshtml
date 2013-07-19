@@ -1,0 +1,159 @@
+﻿@model eStoreViewModels.CustomerViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrap">
+    <div style="position: absolute; top: 50px;">
+        @*<img src="~/Images/supplements-banner1.jpg" />*@
+    </div>
+</div>
+
+<a href="#x" class="overlay" id="register_popup"></a>
+<div class="popup">
+    <div style="padding-top: 20px">
+        <div style="font-size: larger; padding-bottom: 20px; text-align: center;">
+            @using (Ajax.BeginForm("Register", "Home", new AjaxOptions { InsertionMode = InsertionMode.Replace,
+															             HttpMethod = "GET",
+															             UpdateTargetId = "msg"}))
+            {
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-tab1">Personal</a></li>
+                        <li><a href="#tabs-tab2">Address</a></li>
+                        <li><a href="#tabs-tab3">Account</a></li>
+                    </ul>                
+                
+                <div id="tabs-tab1">
+	                @Html.Label("Firstname")
+	                @Html.TextBoxFor(model => model.Firstname, new { @required = "required",
+													                 @title = "Please provide your first name" })
+                    @Html.ValidationMessageFor(model => model.Firstname, null, new { @class="errmsg" })
+	                <br />
+	                @Html.Label("Surname")
+	                @Html.TextBoxFor(model => model.Lastname, new { @required = "required",
+													                @title = "Please provide your surname" })
+                    @Html.ValidationMessageFor(model => model.Lastname, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Age")
+                    @Html.TextBoxFor(model => model.Age, new { @required = "required",
+                                                               @title = "Please provide your age"})
+                    @Html.ValidationMessageFor(model => model.Age, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Credit Card")
+                    @{
+                        List<SelectListItem> ccs = new List<SelectListItem>();
+                        ccs.Add(new SelectListItem { Text = "Visa", Value = "V" });
+                        ccs.Add(new SelectListItem { Text = "MasterCard", Value = "M" });
+                        ccs.Add(new SelectListItem { Text = "American Express", Value = "A" });
+                    }
+                    @Html.DropDownListFor(model => model.CreditcardType, ccs)
+                </div>
+                
+                <div id="tabs-tab2">
+                    @Html.Label("Address")
+                    @Html.TextBoxFor(model => model.Address1, new { @required = "required",
+                                                                    @title = "Please provide street address"})
+                    @Html.ValidationMessageFor(model => model.Address1, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("City")
+                    @Html.TextBoxFor(model => model.City, new { @required = "required",
+													            @title = "Please provide city of residence" })
+                    @Html.ValidationMessageFor(model => model.City, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Region")
+                    @Html.TextBoxFor(model => model.Region, new { @required = "required",
+													              @title = "Please provide region of residence" })
+                    @Html.ValidationMessageFor(model => model.Region, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Country")
+                    @{
+                        List<SelectListItem> country = new List<SelectListItem>();
+                        country.Add(new SelectListItem { Text = "USA", Value = "U" });
+                        country.Add(new SelectListItem { Text = "Canada", Value = "C" });
+                    }
+                    @Html.DropDownListFor(model => model.Country, country)
+                    <br />
+                    @Html.Label("Postal Code")
+                    @Html.TextBoxFor(model => model.Mailcode, new { @required = "required",
+													               @title = "Please provide postal code" })
+                    @Html.ValidationMessageFor(model => model.Mailcode, null, new { @class="errmsg" })
+                </div>
+                
+                <div id="tabs-tab3">
+                    @Html.Label("Username")
+                    @Html.TextBoxFor(model => model.Username, new { @required = "required",
+                                                                    @title = "Please provide a unique username"})
+                    @Html.ValidationMessageFor(model => model.Username, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Password")
+                    @Html.TextBoxFor(model => model.Password, new { @required = "required",
+                                                                    @title = "Please provide a unique password"})
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Confirm Password")
+                    @Html.TextBoxFor(model => model.RepeatPassword, new { @required = "required",
+                                                                    @title = "Please confirm your password"})
+                    @Html.ValidationMessageFor(model => model.RepeatPassword, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Email")
+                    @Html.TextBoxFor(model => model.Email, new { @required = "required",
+                                                                 @title = "Please provide your email address"})
+                    @Html.ValidationMessageFor(model => model.Email, null, new { @class="errmsg" })
+                    <br />
+	                <input type="submit" value="Register" class="btn-custom" id="registerButton" />
+                </div>
+                </div>
+            }
+            <div id="msg">
+	            @Html.Partial("PopupMessage")<div class="span2"></div>
+            </div>
+        </div>
+        <a class="close" href="#close"></a>
+    </div>
+</div>
+
+<a href="#x" class="overlay" id="login_popup"></a>
+<div class="popup">
+    <script type="text/javascript">
+        var onSuccess = function (result) {
+            if (result.url) {
+                window.location.href = result.url;
+            }
+        }
+    </script>
+    <div style="padding-top: 20px">
+        <div style="font-size: larger; padding-bottom: 20px; text-align: center;">
+            @using (Ajax.BeginForm("Login", "Home", new AjaxOptions
+            {
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "GET",
+                UpdateTargetId = "mssg",
+                OnSuccess = "onSuccess"
+            }))
+            {
+                <div id="login">                   
+                    @Html.Label("Username")
+                    @Html.TextBoxFor(model => model.Username, new { @required = "required",
+                                                                    @title = "Please provide a unique username"})
+                    @Html.ValidationMessageFor(model => model.Username, null, new { @class="errmsg" })
+                    <br />
+                    @Html.Label("Password")
+                    @Html.PasswordFor(model => model.Password, new { @required = "required",
+                                                                    @title = "Please provide a unique password"})
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @class="errmsg" })
+                    <br />
+                    <input type="submit" value="Login" class="btn-custom" id="loginButton" />
+                </div>
+            }
+            <div id="mssg">
+	            @Html.Partial("PopupMessage")<div class="span2"></div>
+            </div>
+        <a class="close" href="#close"></a>
+    </div>
+</div>
+</div>
+
+
