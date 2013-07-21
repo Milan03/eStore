@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using eStoreWebsite.Filters;
 using WebMatrix.WebData;
 using System.Web.Security;
+using eStoreViewModels;
 
 namespace eStoreWebsite.Controllers
 {
@@ -18,7 +19,6 @@ namespace eStoreWebsite.Controllers
             {
                 Session["LoginStatus"] = "Not Loggin In";
             }
-
             return View();
         }
 

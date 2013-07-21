@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render( "~/Content/bootstrap.min.css", "~/Content/bootstrap-responsive.min.css", "~/Content/eStore.css","~/Content/popup.css","~/Content/themes/base/css")
+    @Styles.Render( "~/Content/bootstrap.min.css", "~/Content/bootstrap-responsive.min.css", "~/Content/eStore.css","~/Content/popup.css", "~/Content/Catalogue.css", "~/Content/themes/base/css", "~/Content/eStoreCss")
     @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery", "~/bundles/jqueryui", "~/bundles/jqueryval", "~/Scripts/mvc1.js")
 </head>
 <body>
@@ -28,6 +28,7 @@
                     <li><a href="~/Home/#register_popup">Register</a></li>
                     <li><a href="~/Home/#login_popup">Login</a></li>                    
                     <li><a href="~/Home/Logout">Logout</a></li>
+                    <li><a href="~/Shop/Index">Shop</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li>@Session["LoginStatus"]</li>

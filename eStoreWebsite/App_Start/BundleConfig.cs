@@ -38,6 +38,13 @@ namespace eStoreWebsite
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            //eStore css bundle
+            bundles.Add(new StyleBundle("~/Content/eStoreCss").Include(
+                "~/Content/eStore.css",
+                "~/Content/Catalogue.css",
+                "~/Content/popup.css"
+               ));
         }
     }
 }

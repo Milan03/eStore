@@ -163,10 +163,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CatalogueHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,9 +177,20 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Catalogue.css" />
     <Content Include="Content\eStore.css" />
+    <Content Include="Content\images\AnimalPak.png" />
+    <Content Include="Content\images\AnimalRage.png" />
+    <Content Include="Content\images\Craze.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\Jacked.png" />
+    <Content Include="Content\images\MPA.png" />
+    <Content Include="Content\images\OptimumBCAAs.png" />
+    <Content Include="Content\images\OptimumCreatine.png" />
+    <Content Include="Content\images\OptimumFishOil.png" />
+    <Content Include="Content\images\OptimumGlutamine.png" />
+    <Content Include="Content\images\OptimumWhey.png" />
     <Content Include="Content\popup.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -295,6 +308,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\PopupMessage.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
