@@ -1,10 +1,4 @@
-﻿
-    //$(function () {
-    //    $("#tabs").tabs();       // look for tabs element 
-    //});
-
-
-$(function () {             // look for tabs
+﻿$(function () {             // look for tabs
     if ($("#tabs").length != 0) {
         $("#tabs").tabs({
             select: function (e, ui) {
@@ -17,5 +11,15 @@ $(function () {             // look for tabs
     }
 });
 
-
-
+$(document).ready(function () {
+    $("a.details").on("click", function (e) {
+        pcd = $(this).attr("data-prodcd");
+        $("#qty").val("0");
+        $("#messg2").text("");
+        $("#detailsGraphic").attr("src", $("#Graphic" + pcd).attr("src"));
+        $("#detailsProdName").text($("#Name" + pcd).text());
+        $("#detailsDescr").text($("#Descr" + pcd).data('description'));
+        $("#detailsProdcd").val(pcd);
+        $("#detailsPrice").text($("#Price" + pcd).text());
+    });
+});
